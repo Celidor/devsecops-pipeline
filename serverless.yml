@@ -21,6 +21,6 @@ plugins:
 custom:
   customDomain:
     domainName: time-csa1.celidor.uk
-    basePath: ${env:AWS_STAGE}
+    basePath: api
     createRoute53Record: true
     endpointType: 'regional'
