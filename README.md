@@ -10,8 +10,12 @@ Stages:
 
 * build
 * unit test
-* dev deploy and test
-* test deploy and test
-* create custom domain
-* prod deploy and test
+* dev deploy
+* create test custom domain
+* test deploy
 * inspec test
+* create prod custom domain
+* prod deploy
+* inspec prod
+
+![alt text](devsecops-pipeline.png "DevSecOps Pipeline")
