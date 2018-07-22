@@ -5,6 +5,7 @@ pipeline {
 
     environment {
         AWS_REGION = 'eu-west-1'
+        AWS_ENV    = 'csa1'
     }
 
     stages {

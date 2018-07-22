@@ -1,4 +1,4 @@
-service: serverless-domain
+service: serverless-${env:AWS_ENV}
 
 frameworkVersion: ">=1.2.0 <2.0.0"
 
@@ -20,7 +20,7 @@ plugins:
 
 custom:
   customDomain:
-    domainName: time.celidor.uk
+    domainName: time-${env:AWS_ENV}.celidor.uk
     basePath: ${env:AWS_STAGE}
     stage: ${env:AWS_STAGE}
     createRoute53Record: true

@@ -3,7 +3,7 @@
 
 title 'api ping'
 
-describe http('https://time.celidor.uk/dev/ping') do
+describe http('https://time-csa1.celidor.uk/prod/ping') do
   its ('status') {should cmp 200}
   its('body') { should match 'message' }
   its('body') { should match 'Hello, the current time is' }
