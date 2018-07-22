@@ -22,6 +22,6 @@ custom:
   customDomain:
     domainName: time.celidor.uk
     basePath: api
-    stage: prod
+    stage: dev
     createRoute53Record: true
     endpointType: 'regional'
