@@ -23,13 +23,7 @@ pipeline {
                 AWS_STAGE = 'dev'
             }
             steps {
-                sh 'serverless create_domain'
                 sh 'serverless deploy -s dev'
-            }
-        }
-        stage('Inspec Dev'){
-            steps {
-                sh 'inspec exec test/api-ping/controls/dev.rb'
             }
         }
         stage('Test (Deploy)') {
