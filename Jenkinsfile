@@ -8,12 +8,6 @@ pipeline {
     }
 
     stages {
-        stage('setup'){
-        steps {
-            sh 'export ENVIRONMENT="csa1"'
-            sh 'export DOMAIN="celidor.uk"'
-            }
-        }
         stage('Build'){
             steps {
                 sh 'npm i'
@@ -29,9 +23,8 @@ pipeline {
                 AWS_STAGE = 'dev'
             }
             steps {
-                sh 'export STAGE="dev"'
                 sh 'serverless create_domain'
-                sh 'serverless deploy -s dev'
+                sh 'serverless deploy -stage dev'
             }
         }
         stage('Inspec Test'){

@@ -1,4 +1,4 @@
-service: devsecops-pipeline-${env:ENVIRONMENT}
+service: devsecops-pipeline-csa1
 
 frameworkVersion: ">=1.2.0 <2.0.0"
 
@@ -20,7 +20,7 @@ plugins:
 
 custom:
   customDomain:
-    domainName: time-${env:ENVIRONMENT}.${env:DOMAIN}
-    basePath: ${env:STAGE}
+    domainName: time-csa1.celidor.uk
+    basePath: ${opt:stage}
     createRoute53Record: true
     endpointType: 'regional'
