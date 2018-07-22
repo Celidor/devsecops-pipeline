@@ -27,7 +27,7 @@ pipeline {
                 sh 'serverless deploy -s dev'
             }
         }
-        stage('Inspec Test'){
+        stage('Inspec Dev'){
             steps {
                 sh 'inspec exec test/api-ping/controls/dev.rb'
             }
@@ -55,7 +55,7 @@ pipeline {
                 sh 'serverless deploy -s prod'
             }
         }
-        stage('Inspec Test'){
+        stage('Inspec Prod'){
             steps {
                 sh 'inspec exec test/api-ping/controls/prod.rb'
             }
