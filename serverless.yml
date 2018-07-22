@@ -22,7 +22,7 @@ custom:
   stage: ${opt:stage}
   customDomain:
     domainName: time-csa1.celidor.uk
-    basePath: ${self:custom.stage}
-    stage: ${self:custom.stage}
+    basePath: ${env:AWS_STAGE}
+    stage: ${env:AWS_STAGE}
     createRoute53Record: true
     endpointType: 'regional'
