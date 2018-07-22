@@ -19,8 +19,10 @@ plugins:
   - serverless-domain-manager
 
 custom:
+  stage: ${opt:stage}
   customDomain:
     domainName: time-csa1.celidor.uk
-    basePath: ${env:stage}
+    basePath: ${self:custom.stage}
+    stage: ${self:custom.stage}
     createRoute53Record: true
     endpointType: 'regional'
