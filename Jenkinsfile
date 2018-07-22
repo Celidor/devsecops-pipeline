@@ -29,7 +29,35 @@ pipeline {
         }
         stage('Inspec Test'){
             steps {
-                sh 'inspec exec test/api-ping/controls/ping.rb'
+                sh 'inspec exec test/api-ping/controls/dev.rb'
+            }
+        }
+        stage('Test (Deploy)') {
+            environment {
+                AWS_STAGE = 'test'
+            }
+            steps {
+                sh 'serverless create_domain'
+                sh 'serverless deploy -s test'
+            }
+        }
+        stage('Inspec Test'){
+            steps {
+                sh 'inspec exec test/api-ping/controls/test.rb'
+            }
+        }
+        stage('Prod (Deploy)') {
+            environment {
+                AWS_STAGE = 'prod'
+            }
+            steps {
+                sh 'serverless create_domain'
+                sh 'serverless deploy -s prod'
+            }
+        }
+        stage('Inspec Test'){
+            steps {
+                sh 'inspec exec test/api-ping/controls/prod.rb'
             }
         }
     }
