@@ -4,18 +4,16 @@ pipeline {
     agent any
 
     environment {
-        AWS_REGION = 'eu-west-1'
+        AWS_REGION = 'us-east-1'
     }
 
     stages {
-        stage('Build'){
-            steps {
-                sh 'npm i'
+        stage('Dev (Deploy & Test)') {
+            environment {
+                AWS_STAGE = 'dev'
             }
-        }
-        stage('Unit Test'){
             steps {
-                sh 'npm test'
+                sh 'serverless deploy -s dev'
             }
         }
         stage('Test (Deploy & Test)') {
@@ -23,15 +21,7 @@ pipeline {
                 AWS_STAGE = 'test'
             }
             steps {
-                sh './node_modules/.bin/sls deploy -s test'
-            }
-        }
-        stage('Test (Deploy & Test)') {
-            environment {
-                AWS_STAGE = 'test'
-            }
-            steps {
-                sh './node_modules/.bin/sls deploy -s test'
+                sh 'serverless deploy -s test'
             }
         }
         stage('Prod (Deploy)') {
