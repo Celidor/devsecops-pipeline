@@ -24,7 +24,7 @@ pipeline {
             }
             steps {
                 sh 'serverless create_domain'
-                sh 'serverless deploy -stage dev'
+                sh 'serverless deploy -s dev'
             }
         }
         stage('Inspec Test'){
