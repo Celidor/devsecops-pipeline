@@ -18,20 +18,20 @@ pipeline {
                 sh 'npm test'
             }
         }
-        stage('Dev (Deploy)') {
-            environment {
-                AWS_STAGE = 'dev'
-            }
-            steps {
-                sh 'serverless deploy -s dev'
-            }
-        }
-        stage('Test (Deploy)') {
+        stage('Test (Deploy & Test)') {
             environment {
                 AWS_STAGE = 'test'
             }
             steps {
-                sh 'serverless deploy -s test'
+                sh './node_modules/.bin/sls deploy -s test'
+            }
+        }
+        stage('Test (Deploy & Test)') {
+            environment {
+                AWS_STAGE = 'test'
+            }
+            steps {
+                sh './node_modules/.bin/sls deploy -s test'
             }
         }
         stage('Prod (Deploy)') {
