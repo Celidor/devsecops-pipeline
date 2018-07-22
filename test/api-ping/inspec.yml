@@ -1,0 +1,8 @@
+name: api-ping
+title: InSpec Profile
+maintainer: Paul Schwarzenberger
+copyright: Paul Schwarzenberger
+copyright_email: paul@celidor.net
+license: Apache-2.0
+summary: An InSpec Compliance Profile
+version: 0.1.0

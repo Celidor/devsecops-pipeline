@@ -1,0 +1,27 @@
+service: devsecops-pipeline
+
+frameworkVersion: ">=1.2.0 <2.0.0"
+
+provider:
+  name: aws
+  runtime: python2.7
+  region: us-east-1
+
+functions:
+  currentTime:
+    handler: handler.endpoint
+    events:
+      - http:
+          path: ping
+          method: get
+
+plugins:
+  - serverless-domain-manager
+
+custom:
+  customDomain:
+    domainName: time.celidor.uk
+    basePath: api
+    stage: prod
+    createRoute53Record: true
+    endpointType: 'regional'
