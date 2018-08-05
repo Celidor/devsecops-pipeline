@@ -25,6 +25,7 @@ pipeline {
                 AWS_STAGE = 'dev'
             }
             steps {
+                sh 'serverless create_domain'
                 sh 'serverless deploy -s dev'
             }
         }
