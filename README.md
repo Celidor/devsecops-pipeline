@@ -27,7 +27,7 @@ Stages:
 * default AWS credential profile is used, change if needed using --profile argument
 
 ```
-cd resources
+cd resources/python27
 python delete-serverlessenv.py --env {YOUR-ENVIRONMENT-NAME} --dry_run
 ```
 * then delete resources
